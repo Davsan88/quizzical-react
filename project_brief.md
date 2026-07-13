@@ -24,7 +24,22 @@ Landing screen → Start quiz → Loading → Answer 5 questions
 
 ## Quality requirements
 
-Works on mobile and desktop.
-Keyboard-accessible answer buttons with visible focus states.
-Clear loading and error states.
-No duplicated state: score is derived from the questions and selections.
+* Works on mobile and desktop.
+* Keyboard-accessible answer buttons with visible focus states.
+* Clear loading and error states.
+* No duplicated state: score is derived from the questions and selections.
+
+---
+
+# Delivery plan
+
+0. Plan: Scope, data shape, and acceptance criteria agreed	
+1. App shell: Start screen matches the basic design and can enter quiz mode
+2. API integration:	App fetches, decodes, and reshapes five questions
+3. Question UI:	Reusable questions and answer options render correctly	
+4. Answer selection: One answer can be selected per question
+5. Results:	Check answers scores and displays feedback
+6. Replay/resilience:	Fresh quiz, loading state, and error handling	
+7. Polish:	Responsive styling, accessibility pass, README, deployment	
+
+Each slice should be small enough to demo in under a minute. I won’t start the next one until the current one works.
