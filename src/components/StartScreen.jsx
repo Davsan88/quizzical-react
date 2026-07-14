@@ -2,7 +2,7 @@ const StartScreen = ({ onStartQuiz }) => {
 
 
     return (
-        <section>
+        <section className="start-screen-section">
             <h1 className="start-screen-header">
                 Quizzical
             </h1>
@@ -10,7 +10,7 @@ const StartScreen = ({ onStartQuiz }) => {
                 What do you know?
             </p>
             <button 
-                className="start-screen-button"
+                className="start-screen-btn"
                 onClick={onStartQuiz}   
             >
                 Start quiz
