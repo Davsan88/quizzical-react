@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import StartScreen from './components/StartScreen'
+import Quiz from './components/Quiz'
 
 function App() {
 
@@ -32,12 +33,15 @@ function App() {
         <StartScreen
           onStartQuiz={handleStartQuiz}
         /> :
-        loading ?
-          <h1 className="start-screen-header container">
-            LOADING QUESTIONS...
-          </h1>
-          :
-          screenStatus
+          loading ?
+            <h1 className="start-screen-header container">
+              LOADING QUESTIONS...
+            </h1> : 
+              playing ? 
+                <Quiz 
+                  questions={questions}
+                /> :
+                  screenStatus
       }
     </main>
   )
