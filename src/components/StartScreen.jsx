@@ -9,13 +9,15 @@ const StartScreen = ({ onStartQuiz }) => {
             <p className="start-screen-text">
                 What do you know?
             </p>
-            <button 
+            <button
                 className="start-screen-btn"
-                onClick={onStartQuiz}   
+                onClick={onStartQuiz}
             >
                 Start quiz
             </button>
-        </section>
+
+        </section >
+
     )
 }
 
