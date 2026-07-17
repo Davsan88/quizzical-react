@@ -25,6 +25,21 @@ function App() {
     fetchQuestions()
   }
 
+  const curateQuestions = (questions) => {
+      return questions.map(({
+          question, 
+          correct_answer, 
+          incorrect_answers
+      }) => ({
+          question,
+          correct_answer, 
+          incorrect_answers
+      }))
+  }
+
+  const curatedQuestions = curateQuestions(questions)
+
+
   console.log(questions)
 
   return (
@@ -39,7 +54,7 @@ function App() {
             </h1> : 
               playing ? 
                 <Quiz 
-                  questions={questions}
+                  questions={curatedQuestions}
                 /> :
                   screenStatus
       }
