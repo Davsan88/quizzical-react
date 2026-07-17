@@ -2,6 +2,7 @@ import Question from "./Question"
 
 const Quiz = ({ questions }) => {
 
+   
     const questionCards = questions.map((question, index) => {
         return (
             <Question
