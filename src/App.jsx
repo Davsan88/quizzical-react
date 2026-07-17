@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import StartScreen from './components/StartScreen'
 import Quiz from './components/Quiz'
+import { decode } from 'html-entities'
 
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
   const fetchQuestions = async () => {
       const questionsRes = await fetch('https://opentdb.com/api.php?amount=5&type=multiple')
       const data = await questionsRes.json()
-
+      
       setQuestions(data.results)
       setScreenStatus('playing')
   }
@@ -31,9 +32,12 @@ function App() {
           correct_answer, 
           incorrect_answers
       }) => ({
-          question,
-          correct_answer, 
-          incorrect_answers
+          question:
+          decode(question),
+          correctAnswer:
+          decode(correct_answer),
+          incorrectAnswers:
+          incorrect_answers.map(answer => decode(answer))
       }))
   }
 
