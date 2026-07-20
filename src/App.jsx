@@ -41,10 +41,18 @@ function App() {
       }))
   }
 
+  var arr = [1,2,3,4,5]
+
+  const insertAnswerAtRandomIndex = (arr, x) => {
+    const randomIndex = Math.floor(Math.random() * (arr.length + 1))
+    const shuffledArr = [...arr.slice(0, randomIndex), x, ...arr.slice(randomIndex)]
+    return shuffledArr  
+  }
+
+  console.log(insertAnswerAtRandomIndex(arr, 9))
+
   const curatedQuestions = curateQuestions(questions)
 
-
-  console.log(questions)
 
   return (
     <main className='container'>
