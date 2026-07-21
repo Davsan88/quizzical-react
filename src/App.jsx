@@ -37,7 +37,7 @@ function App() {
       return ({
         question: decodedQuestion,
         correctAnswer: decodedCorrectAnswer, 
-        decodedIncorrectAnswers: decodedIncorrectAnswers
+        incorrectAnswers: decodedIncorrectAnswers
       })
     })
   }
@@ -50,9 +50,21 @@ const insertAnswerAtRandomIndex = (arr, x) => {
   return shuffledArr
 }
 
-// console.log(insertAnswerAtRandomIndex(arr, 9))
-
 const curatedQuestions = curateQuestions(questions)
+
+const insertedCorrectAnswerQuestions = curatedQuestions.map(({
+    question,
+    correctAnswer, 
+    incorrectAnswers
+  }) => {
+    
+    return ({
+      question,
+      correctAnswer,
+      answers: insertAnswerAtRandomIndex(incorrectAnswers, correctAnswer) })
+  })
+
+console.log(insertedCorrectAnswerQuestions)
 
 
 return (
@@ -67,7 +79,7 @@ return (
         </h1> :
         playing ?
           <Quiz
-            questions={curatedQuestions}
+            questions={insertedCorrectAnswerQuestions}
           /> :
           screenStatus
     }
