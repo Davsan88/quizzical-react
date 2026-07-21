@@ -14,11 +14,11 @@ function App() {
   const playing = screenStatus === 'playing'
 
   const fetchQuestions = async () => {
-      const questionsRes = await fetch('https://opentdb.com/api.php?amount=5&type=multiple')
-      const data = await questionsRes.json()
-      
-      setQuestions(data.results)
-      setScreenStatus('playing')
+    const questionsRes = await fetch('https://opentdb.com/api.php?amount=5&type=multiple')
+    const data = await questionsRes.json()
+
+    setQuestions(data.results)
+    setScreenStatus('playing')
   }
 
   const handleStartQuiz = () => {
@@ -27,51 +27,51 @@ function App() {
   }
 
   const curateQuestions = (questions) => {
-      return questions.map(({
-          question, 
-          correct_answer, 
-          incorrect_answers
-      }) => ({
-          question:
-          decode(question),
-          correctAnswer:
-          decode(correct_answer),
-          incorrectAnswers:
-          incorrect_answers.map(answer => decode(answer))
-      }))
+
+    return questions.map(({ question, correct_answer, incorrect_answers }) => {
+
+      const decodedQuestion = decode(question)
+      const decodedCorrectAnswer = decode(correct_answer)
+      const decodedIncorrectAnswers = incorrect_answers.map(answer => decode(answer))
+
+      return ({
+        question: decodedQuestion,
+        correctAnswer: decodedCorrectAnswer, 
+        decodedIncorrectAnswers: decodedIncorrectAnswers
+      })
+    })
   }
 
-  var arr = [1,2,3,4,5]
-
-  const insertAnswerAtRandomIndex = (arr, x) => {
-    const randomIndex = Math.floor(Math.random() * (arr.length + 1))
-    const shuffledArr = [...arr.slice(0, randomIndex), x, ...arr.slice(randomIndex)]
-    return shuffledArr  
-  }
-
-  console.log(insertAnswerAtRandomIndex(arr, 9))
-
-  const curatedQuestions = curateQuestions(questions)
 
 
-  return (
-    <main className='container'>
-      {intro ?
-        <StartScreen
-          onStartQuiz={handleStartQuiz}
-        /> :
-          loading ?
-            <h1 className="start-screen-header container">
-              LOADING QUESTIONS...
-            </h1> : 
-              playing ? 
-                <Quiz 
-                  questions={curatedQuestions}
-                /> :
-                  screenStatus
-      }
-    </main>
-  )
+const insertAnswerAtRandomIndex = (arr, x) => {
+  const randomIndex = Math.floor(Math.random() * (arr.length + 1))
+  const shuffledArr = [...arr.slice(0, randomIndex), x, ...arr.slice(randomIndex)]
+  return shuffledArr
 }
 
+// console.log(insertAnswerAtRandomIndex(arr, 9))
+
+const curatedQuestions = curateQuestions(questions)
+
+
+return (
+  <main className='container'>
+    {intro ?
+      <StartScreen
+        onStartQuiz={handleStartQuiz}
+      /> :
+      loading ?
+        <h1 className="start-screen-header container">
+          LOADING QUESTIONS...
+        </h1> :
+        playing ?
+          <Quiz
+            questions={curatedQuestions}
+          /> :
+          screenStatus
+    }
+  </main>
+)
+}
 export default App
