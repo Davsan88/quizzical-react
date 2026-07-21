@@ -2,7 +2,7 @@
 const Question = ({ question }) => {
 
     const correctAnswer = question.correctAnswer
-    const answers = question.incorrectAnswers.concat(question.correctAnswer)
+    const answers = question.answers
 
     const answerButtons = answers.map((answer) => {
         return (
@@ -11,9 +11,6 @@ const Question = ({ question }) => {
             </button>
         )
     })
-
-    console.log(answers)
-    console.log(correctAnswer)
 
     return (
         <div className="question-div container">
