@@ -12,7 +12,6 @@ const Quiz = ({ questions }) => {
         )
     })
 
-    console.log(questionCards)
     return (
         <section className="quiz-section">
             {questionCards}
