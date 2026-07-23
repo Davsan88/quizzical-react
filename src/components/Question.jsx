@@ -1,12 +1,20 @@
+import { clsx } from "clsx"
 
-const Question = ({ question }) => {
+const Question = ({ question, questionIndex, selectedAnswers, handleSelectedAnswer }) => {
 
-    const correctAnswer = question.correctAnswer
-    const answers = question.answers
+    const answerButtons = question.answers.map((answer) => {
+        
+        const isSelected = selectedAnswers[questionIndex] === answer
 
-    const answerButtons = answers.map((answer) => {
         return (
-            <button className="answer-btn" key={answer}>
+            <button 
+                className={clsx(
+                    'answer-btn',
+                    isSelected && 'selected-answer',
+                )} 
+                key={answer}
+                onClick={() => {handleSelectedAnswer(answer, questionIndex)}}
+            >
                 {answer}
             </button>
         )
