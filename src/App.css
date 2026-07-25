@@ -121,3 +121,16 @@ main {
 }
 
 
+.quiz-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.no-selected-answer {
+    background-color: var(--color-display);
+}
+
+.selected-answer {
+    background-color: var(--color-cyan);
+}
