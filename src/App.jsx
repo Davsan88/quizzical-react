@@ -42,48 +42,46 @@ function App() {
     })
   }
 
+  const insertAnswerAtRandomIndex = (arr, x) => {
+    const randomIndex = Math.floor(Math.random() * (arr.length + 1))
+    const shuffledArr = [...arr.slice(0, randomIndex), x, ...arr.slice(randomIndex)]
+    return shuffledArr
+  }
 
+  const curatedQuestions = curateQuestions(questions)
 
-const insertAnswerAtRandomIndex = (arr, x) => {
-  const randomIndex = Math.floor(Math.random() * (arr.length + 1))
-  const shuffledArr = [...arr.slice(0, randomIndex), x, ...arr.slice(randomIndex)]
-  return shuffledArr
-}
-
-const curatedQuestions = curateQuestions(questions)
-
-const insertedCorrectAnswerQuestions = curatedQuestions.map(({
-    question,
-    correctAnswer, 
-    incorrectAnswers
-  }) => {
-    
-    return ({
+  const insertedCorrectAnswerQuestions = curatedQuestions.map(({
       question,
-      correctAnswer,
-      answers: insertAnswerAtRandomIndex(incorrectAnswers, correctAnswer) })
-  })
+      correctAnswer, 
+      incorrectAnswers
+    }) => {
 
-console.log(insertedCorrectAnswerQuestions)
+      return ({
+        question,
+        correctAnswer,
+        answers: insertAnswerAtRandomIndex(incorrectAnswers, correctAnswer) })
+    })
+
+  console.log(insertedCorrectAnswerQuestions)
 
 
-return (
-  <main className='container'>
-    {intro ?
-      <StartScreen
-        onStartQuiz={handleStartQuiz}
-      /> :
-      loading ?
-        <h1 className="start-screen-header container">
-          LOADING QUESTIONS...
-        </h1> :
-        playing ?
-          <Quiz
-            questions={insertedCorrectAnswerQuestions}
-          /> :
-          screenStatus
-    }
-  </main>
-)
+  return (
+    <main className='container'>
+      {intro ?
+        <StartScreen
+          onStartQuiz={handleStartQuiz}
+        /> :
+        loading ?
+          <h1 className="start-screen-header container">
+            LOADING QUESTIONS...
+          </h1> :
+          playing ?
+            <Quiz
+              questions={insertedCorrectAnswerQuestions}
+            /> :
+            screenStatus
+      }
+    </main>
+  )
 }
 export default App
