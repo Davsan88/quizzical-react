@@ -4,9 +4,8 @@ import Question from "./Question"
 const Quiz = ({ questions }) => {
 
     const [selectedAnswers, setSelectedAnswers] = useState([])
+    const [isQuizChecked, setIsQuizChecked] = useState(false)
 
-    let isQuizChecked = false
-    
 
     const handleSelectedAnswer = (answer, questionIndex) => {
         setSelectedAnswers(prevAnswers => {
@@ -17,7 +16,7 @@ const Quiz = ({ questions }) => {
     }
 
     const handleCheckAnswers = () => {
-        isQuizChecked = !isQuizChecked
+        setIsQuizChecked(true)
         let quizScore = 0
 
         questions.forEach((question, index) => {
