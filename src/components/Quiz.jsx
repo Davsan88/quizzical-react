@@ -1,7 +1,7 @@
 import { useState } from "react"
 import Question from "./Question"
 
-const Quiz = ({ questions }) => {
+const Quiz = ({ questions, handleStartQuiz }) => {
 
     const [selectedAnswers, setSelectedAnswers] = useState([])
     const [isQuizChecked, setIsQuizChecked] = useState(false)
@@ -23,9 +23,12 @@ const Quiz = ({ questions }) => {
     }
 
     const handleCheckAnswers = () => {
-        setIsQuizChecked(true)
+        setIsQuizChecked(true)        
+    }
 
-        
+    const handlePlayAgain = () => {
+        setIsQuizChecked(false)
+        handleStartQuiz()
     }
 
 
@@ -52,7 +55,9 @@ const Quiz = ({ questions }) => {
                         <p className="quiz-results-para">
                             {`You scored ${quizScore}/5 correct answers`}
                         </p>
-                        <button className="play-again-btn">
+                        <button className="play-again-btn" 
+                        onClick={handlePlayAgain}
+                        >
                             Play again
                         </button>
                     </> :
