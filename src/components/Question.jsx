@@ -1,36 +1,56 @@
 import { clsx } from "clsx"
 
-const Question = ({ question, questionIndex, selectedAnswers, handleSelectedAnswer }) => {
+const Question = ({ question, questionIndex, selectedAnswers, handleSelectedAnswer, isQuizChecked }) => {
 
     const answerButtons = question.answers.map((answer) => {
-        
+
         const isSelected = selectedAnswers[questionIndex] === answer
+        const isCorrect = answer === question.correctAnswer
+        const isWrong = isSelected && !isCorrect
+
 
         return (
-            <button 
+            <button
                 className={clsx(
                     'answer-btn',
-                    isSelected && 'selected-answer',
-                )} 
-                key={answer}
-                onClick={() => {handleSelectedAnswer(answer, questionIndex)}}
+                    {
+                        'correct-answer': isQuizChecked && isCorrect,
+                        'wrong-answer': isQuizChecked && isWrong,
+                        'selected-answer': !isQuizChecked && isSelected,
+                    }
+                )}
+                key = { answer }
+                onClick={() => handleSelectedAnswer(answer, questionIndex)}
+                disabled={isQuizChecked}
             >
-                {answer}
-            </button>
+        { answer }
+                </button >
+                // :
+
+                // <button
+                //     className={clsx(
+                //         'answer-btn',
+                //         
+                //     )}
+                //     key={answer}
+                //     
+                // >
+                //     {answer}
+                // </button>
         )
     })
 
-    return (
-        <div className="question-div container">
-            <h2 className="question-header">
-                {question.question}
-            </h2>
-            <div className="answers-div">
-                {answerButtons}
-            </div>
-
+return (
+    <div className="question-div container">
+        <h2 className="question-header">
+            {question.question}
+        </h2>
+        <div className="answers-div">
+            {answerButtons}
         </div>
-    )
+
+    </div>
+)
 }
 
 export default Question
