@@ -9,9 +9,11 @@ function App() {
   const [screenStatus, setScreenStatus] = useState('intro')
   const [questions, setQuestions] = useState([])
 
+
   const intro = screenStatus === 'intro'
   const loading = screenStatus === 'loading'
   const playing = screenStatus === 'playing'
+
 
   const fetchQuestions = async () => {
     const questionsRes = await fetch('https://opentdb.com/api.php?amount=5&type=multiple')
@@ -21,26 +23,6 @@ function App() {
     setScreenStatus('playing')
   }
 
-  const handleStartQuiz = () => {
-    setScreenStatus('loading')
-    fetchQuestions()
-  }
-
-  const curateQuestions = (questions) => {
-
-    return questions.map(({ question, correct_answer, incorrect_answers }) => {
-
-      const decodedQuestion = decode(question)
-      const decodedCorrectAnswer = decode(correct_answer)
-      const decodedIncorrectAnswers = incorrect_answers.map(answer => decode(answer))
-
-      return ({
-        question: decodedQuestion,
-        correctAnswer: decodedCorrectAnswer, 
-        incorrectAnswers: decodedIncorrectAnswers
-      })
-    })
-  }
 
   const insertAnswerAtRandomIndex = (arr, x) => {
     const randomIndex = Math.floor(Math.random() * (arr.length + 1))
@@ -48,21 +30,32 @@ function App() {
     return shuffledArr
   }
 
-  const curatedQuestions = curateQuestions(questions)
 
-  const insertedCorrectAnswerQuestions = curatedQuestions.map(({
-      question,
-      correctAnswer, 
-      incorrectAnswers
-    }) => {
+  const curateQuestions = (questions) => {
 
-      return ({
-        question,
-        correctAnswer,
-        answers: insertAnswerAtRandomIndex(incorrectAnswers, correctAnswer) })
-    })
+    return (
+      questions.map(({ question, correct_answer, incorrect_answers }) => {
+        const decodedCorrectAnswer = decode(correct_answer)
 
-  console.log(insertedCorrectAnswerQuestions)
+        return {
+          question: decode(question),
+          correctAnswer: decodedCorrectAnswer,
+          answers: insertAnswerAtRandomIndex(incorrect_answers.map(answer => decode(answer)), decodedCorrectAnswer) 
+        }
+      })
+    )
+  }
+
+
+  const quizQuestions = curateQuestions(questions)
+
+
+  const handleStartQuiz = () => {
+    setScreenStatus('loading')
+    fetchQuestions()
+  }
+
+  console.log(quizQuestions)
 
 
   return (
@@ -77,7 +70,8 @@ function App() {
           </h1> :
           playing ?
             <Quiz
-              questions={insertedCorrectAnswerQuestions}
+              questions={quizQuestions}
+              handleStartQuiz={handleStartQuiz}
             /> :
             screenStatus
       }
