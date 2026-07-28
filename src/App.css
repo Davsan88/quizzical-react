@@ -127,10 +127,26 @@ main {
     gap: 1em;
 }
 
+.quiz-btn-div {
+    display: flex;
+    justify-content: center;
+}
+
 .no-selected-answer {
     background-color: var(--color-display);
 }
 
 .selected-answer {
     background-color: var(--color-cyan);
+}
+.correct-answer {
+    background-color: var(--color-success);
+}
+.wrong-answer {
+    background-color: var(--color-pink);
+}
+
+.answer-btn:disabled {
+    opacity: 0.9;
+    cursor: not-allowed;
 }
