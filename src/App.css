@@ -10,7 +10,7 @@
 
     --font-xl: 2.2rem;
     --font-l: 1.25rem;
-    --font-m: 1rem;
+    --font-m: 1.125rem;
     --font-s: 0.875rem;
 
     --font-display: "kosan", sans-serif;
@@ -40,6 +40,7 @@ button {
     padding: 0.5em 1.5em;
     cursor: pointer;
     border-radius: 4px;
+    font-family: var(--font-display)
     ;
 }
 
@@ -59,7 +60,9 @@ main {
 
 .start-screen-header,
 .start-screen-text,
-.start-screen-btn {
+.start-screen-btn,
+.check-btn,
+.play-again-btn {
     font-family: var(--font-display);
     color: var(--color-display);
 }
@@ -88,10 +91,11 @@ main {
     margin-bottom: 1em;
 }
 
-.start-screen-btn {
+.start-screen-btn,
+.check-btn,
+.play-again-btn {
     font-size: var(--font-m);
     letter-spacing: 0.15em;
-    border-radius: 3px;
 
     border: 2px solid var(--color-cyan);
     background-color: transparent;
@@ -108,7 +112,9 @@ main {
     margin-bottom: 1em;
 }
 
-.start-screen-btn:hover {
+.start-screen-btn:hover,
+.check-btn:hover,
+.play-again-btn:hover {
     font-weight: 900;
 
     transform: translateY(-2px); 
@@ -125,6 +131,20 @@ main {
     display: flex;
     flex-direction: column;
     gap: 1em;
+    margin-block: 2em;
+}
+
+.question-div {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding-bottom: 2em;
+    margin-bottom: 2em;
+    border-bottom: solid 1px var(--color-border);
+}
+
+.question-header {
+    font-size: var(--font-l);
 }
 
 .quiz-btn-div {
@@ -132,21 +152,115 @@ main {
     justify-content: center;
 }
 
-.no-selected-answer {
-    background-color: var(--color-display);
+.answers-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5em;
+    font-family: var(--font-display)
 }
 
-.selected-answer {
-    background-color: var(--color-cyan);
+.answer-btn {
+    width: auto;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-family: var(--font-display);
+    font-size: var(--font-s);
+    color: var(--color-text);
+
+    border: 2px solid #ffffff;
+    background-color: transparent;
+    text-shadow:
+        0 0 4px var(--color-text),
+        0 0 8px rgba(255, 255, 255, 0.75);
+    box-shadow: 
+        0 0 8px #ffffff,
+        inset 0 0 8px #ffffff;
+    transition: all 0.2s ease;
+
+    margin-bottom: 1em;
 }
-.correct-answer {
-    background-color: var(--color-success);
-}
+
+
+.answer-btn:hover,
+.selected-answer,
+.correct-answer,
 .wrong-answer {
-    background-color: var(--color-pink);
+    font-weight: 900;
+    transform: translateY(-2px); 
+}
+
+.answer-btn:hover,
+.selected-answer {
+    border: 2px solid var(--color-cyan);
+
+    text-shadow:
+        0 0 4px var(--color-cyan),
+        0 0 12px var(--color-cyan),
+        0 0 20px rgba(0, 254, 252, 0.75),
+        0 0 40px rgba(0, 254, 252, 0.4);
+
+    box-shadow: 
+        0 0 4px var(--color-cyan),
+        0 0 12px var(--color-cyan),
+        inset 0 0 20px rgba(0, 254, 252, 0.75),
+        0 0 50px rgba(0, 254, 252, 0.4);
+}
+
+.correct-answer {
+    border: 2px solid var(--color-success);
+
+    text-shadow:
+        0 0 4px var(--color-success),
+        0 0 12px var(--color-success),
+        0 0 20px rgba(0, 254, 125, 0.75),
+        0 0 40px rgba(0, 254, 125, 0.4);
+
+    box-shadow: 
+        0 0 4px var(--color-success),
+        0 0 12px var(--color-success),
+        inset 0 0 20px rgba(0, 254, 125, 0.75),
+        0 0 50px rgba(0, 254, 125, 0.4);
+}
+
+.wrong-answer {
+    border: 2px solid var(--color-pink);
+
+    text-shadow:
+        0 0 4px var(--color-pink),
+        0 0 12px var(--color-pink),
+        0 0 20px rgba(252, 0, 254, 0.75),
+        0 0 40px rgba(252, 0, 254, 0.4);
+
+    box-shadow: 
+        0 0 4px var(--color-pink),
+        0 0 12px var(--color-pink),
+        inset 0 0 20px rgba(252, 0, 254, 0.75),
+        0 0 50px rgba(252, 0, 254, 0.4);
 }
 
 .answer-btn:disabled {
-    opacity: 0.9;
+    opacity: 0.5;
     cursor: not-allowed;
 }
+
+.quiz-btn-div,
+.quiz-results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+.quiz-results {
+    font-size: var(--font-l);
+    margin-bottom: 1.5em;
+}
+
+.quiz-results span {
+    font-size: var(--font-xl);
+    text-shadow:
+        0 0 8px var(--color-cyan),
+        0 0 16px var(--color-cyan);
+}
+
