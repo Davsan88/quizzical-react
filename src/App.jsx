@@ -16,7 +16,7 @@ function App() {
 
 
   const fetchQuestions = async () => {
-    const questionsRes = await fetch('https://opentdb.com/api.php?amount=5&type=multiple')
+    const questionsRes = await fetch('https://opentdb.com/api.php?amount=5&difficulty=medium&type=multiple')
     const data = await questionsRes.json()
 
     setQuestions(data.results)
@@ -25,6 +25,7 @@ function App() {
 
 
   const insertAnswerAtRandomIndex = (arr, x) => {
+    // eslint-disable-next-line react-hooks/purity
     const randomIndex = Math.floor(Math.random() * (arr.length + 1))
     const shuffledArr = [...arr.slice(0, randomIndex), x, ...arr.slice(randomIndex)]
     return shuffledArr
