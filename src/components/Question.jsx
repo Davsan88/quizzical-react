@@ -21,27 +21,15 @@ const Question = ({ question, questionIndex, selectedAnswers, handleSelectedAnsw
                 )}
                 key = { answer }
                 onClick={() => handleSelectedAnswer(answer, questionIndex)}
-                disabled={isQuizChecked}
+                disabled={isQuizChecked && !isCorrect}
             >
-        { answer }
-                </button >
-                // :
-
-                // <button
-                //     className={clsx(
-                //         'answer-btn',
-                //         
-                //     )}
-                //     key={answer}
-                //     
-                // >
-                //     {answer}
-                // </button>
+                { answer }
+            </button >
         )
     })
 
 return (
-    <div className="question-div container">
+    <div className="question-div">
         <h2 className="question-header">
             {question.question}
         </h2>
