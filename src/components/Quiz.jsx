@@ -23,7 +23,7 @@ const Quiz = ({ questions, handleStartQuiz }) => {
     }
 
     const handleCheckAnswers = () => {
-        setIsQuizChecked(true)        
+        setIsQuizChecked(true)
     }
 
     const handlePlayAgain = () => {
@@ -52,24 +52,24 @@ const Quiz = ({ questions, handleStartQuiz }) => {
             <div className="quiz-btn-div container">
                 {isQuizChecked ?
                     <>
-                        <p className="quiz-results-para">
-                            {`You scored ${quizScore}/5 correct answers`}
-                        </p>
-                        <button className="play-again-btn" 
-                        onClick={handlePlayAgain}
+                        <div className="quiz-results">
+                            <p>Quiz complete</p>
+                            <span>{quizScore} / 5</span>
+                            <p>Correct answers</p>
+                        </div>
+                        <button className="play-again-btn"
+                            onClick={handlePlayAgain}
                         >
                             Play again
                         </button>
                     </> :
-                    <>
+                    <button
+                        className="check-btn"
+                        onClick={handleCheckAnswers}
+                    >
+                        Check answers
+                    </button>
 
-                        <button
-                            className="check-btn"
-                            onClick={handleCheckAnswers}
-                        >
-                            Check answers
-                        </button>
-                    </>
                 }
             </div>
         </section>
