@@ -21,6 +21,23 @@ The result is a polished trivia experience with a dark, neon-inspired visual sty
 
 ---
 
+## ✨ Features
+
+- Fetches five random multiple-choice trivia questions from an API
+- Decodes HTML entities returned by the API
+- Randomly places the correct answer among the incorrect options
+- Allows one selected answer per question
+- Lets users check answers even if some questions are unanswered
+- Highlights correct answers in green
+- Highlights selected incorrect answers in pink
+- Calculates and displays the final score
+- Disables answer selection once answers have been checked
+- Starts a fresh round with new questions
+- Includes loading and intro states
+- Responsive design for desktop and mobile
+
+---
+
 
 
 
