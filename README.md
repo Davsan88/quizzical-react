@@ -9,6 +9,18 @@ It fetches five multiple-choice questions from the Open Trivia Database API, let
 👉 [**Live Demo**](https://quizzical-davsan.netlify.app/)  
 👉 [**View the Repository**](https://github.com/Davsan88/quizzical-react)
 
----#
+---
+
+## 🚀 Project Overview
+
+This project brought together the main React concepts I learned throughout the course into one complete, interactive application.
+
+Rather than only focusing on getting the required functionality working, I also spent time improving the UI, refactoring repeated logic, and thinking carefully about state ownership and data flow.
+
+The result is a polished trivia experience with a dark, neon-inspired visual style.
+
+---
+
+
 
 
