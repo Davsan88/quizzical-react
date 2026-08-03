@@ -38,6 +38,22 @@ The result is a polished trivia experience with a dark, neon-inspired visual sty
 
 ---
 
+## 🧠 Key React Concepts Practiced
+
+- Functional components
+- Props and component composition
+- `useState`
+- Conditional rendering
+- Derived state
+- Event handling
+- Immutable state updates
+- Array methods such as `.map()` and `.forEach()`
+- Parent-to-child data flow
+- Child-to-parent communication through callback props
+- Dynamic class names with `clsx`
+
+---
+
 
 
 
