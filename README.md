@@ -54,6 +54,28 @@ The result is a polished trivia experience with a dark, neon-inspired visual sty
 
 ---
 
+## 🏗️ State & Data Flow
+
+The app keeps state as focused as possible.
+
+`App` owns the overall application flow and fetched question data:
+
+```text
+intro → loading → playing
+
+Quiz owns the state specific to an active quiz round:
+
+selectedAnswers
+isQuizChecked
+
+The final score is derived from the existing question and answer data rather than stored separately:
+
+questions[index].correctAnswer ↔ selectedAnswers[index]
+
+If a value can be calculated from existing props or state, it usually does not need to become state itself. 
+
+---
+
 
 
 
