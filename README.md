@@ -62,20 +62,24 @@ The app keeps state as focused as possible.
 
 ```text
 intro → loading → playing
+```
 
-Quiz owns the state specific to an active quiz round:
+`Quiz` owns the state specific to an active quiz round:
 
+```text
 selectedAnswers
 isQuizChecked
+```
 
 The final score is derived from the existing question and answer data rather than stored separately:
 
+```text
 questions[index].correctAnswer ↔ selectedAnswers[index]
+```
 
-If a value can be calculated from existing props or state, it usually does not need to become state itself. 
+> If a value can be calculated from existing props or state, it usually does not need to become state itself.
 
 ---
-
 
 
 
