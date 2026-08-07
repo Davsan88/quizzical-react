@@ -93,5 +93,20 @@ questions[index].correctAnswer ↔ selectedAnswers[index]
 
 ---
 
+## 🎨 Design Approach
+
+I wanted this to feel like a finished small product rather than a basic course exercise.
+
+Some of the design choices included:
+
+- Dark, neon-inspired colour palette
+- Cyan accents with pink and green feedback states
+- Clear selected, correct, and incorrect answer styles
+- Consistent spacing and component styling
+- Responsive quiz layout
+- A focused interface with minimal distractions
+
+---
+
 
 
