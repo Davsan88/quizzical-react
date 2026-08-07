@@ -108,5 +108,32 @@ Some of the design choices included:
 
 ---
 
+## ▶️ Running the Project Locally
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/your-username/quizzical-react.git
+```
+
+2. Move into the project folder:
+
+```bash
+cd quizzical-react
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Start the development server:
+
+```bash
+npm run dev
+```
+
+---
 
 
