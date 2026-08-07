@@ -81,5 +81,17 @@ questions[index].correctAnswer ↔ selectedAnswers[index]
 
 ---
 
+## 🛠️ Technologies Used
+
+- React
+- JavaScript (ES6+)
+- CSS3
+- Vite
+- [Open Trivia Database API](https://opentdb.com/)
+- `clsx`
+- `html-entities`
+
+---
+
 
 
