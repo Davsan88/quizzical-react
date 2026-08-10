@@ -136,4 +136,20 @@ npm run dev
 
 ---
 
+## 🎯 What I Learned
+
+This project was especially valuable because it required multiple React concepts to work together.
+
+Some of my biggest takeaways were:
+
+- Deciding which component should own each piece of state
+- Keeping data relationships clear between questions and selected answers
+- Using derived values instead of duplicating state
+- Understanding that state changes trigger re-renders
+- Preparing API data into a shape that is easy for components to render
+- Refactoring working code into cleaner, more readable solutions
+
+It was a real step from asking *“How do I make this work?”* to asking *“What is the clearest way to model this?”*
+
+---
 
