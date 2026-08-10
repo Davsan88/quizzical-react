@@ -40,8 +40,7 @@ button {
     padding: 0.5em 1.5em;
     cursor: pointer;
     border-radius: 4px;
-    font-family: var(--font-display)
-    ;
+    font-family: var(--font-display);
 }
 
 main {
@@ -104,7 +103,7 @@ main {
         0 0 12px var(--color-cyan),
         0 0 20px rgba(0, 254, 252, 0.75),
         0 0 40px rgba(0, 254, 252, 0.4);
-    box-shadow: 
+    box-shadow:
         0 0 10px var(--color-cyan),
         inset 0 0 10px var(--color-cyan);
     transition: all 0.2s ease;
@@ -117,9 +116,9 @@ main {
 .play-again-btn:hover {
     font-weight: 900;
 
-    transform: translateY(-2px); 
+    transform: translateY(-2px);
 
-    box-shadow: 
+    box-shadow:
         0 0 4px var(--color-cyan),
         0 0 12px var(--color-cyan),
         inset 0 0 20px rgba(0, 254, 252, 0.75),
@@ -153,6 +152,7 @@ main {
 }
 
 .answers-div {
+    margin-top: 1em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -173,7 +173,7 @@ main {
     text-shadow:
         0 0 4px var(--color-text),
         0 0 8px rgba(255, 255, 255, 0.75);
-    box-shadow: 
+    box-shadow:
         0 0 8px #ffffff,
         inset 0 0 8px #ffffff;
     transition: all 0.2s ease;
@@ -187,7 +187,7 @@ main {
 .correct-answer,
 .wrong-answer {
     font-weight: 900;
-    transform: translateY(-2px); 
+    transform: translateY(-2px);
 }
 
 .answer-btn:hover,
@@ -200,7 +200,7 @@ main {
         0 0 20px rgba(0, 254, 252, 0.75),
         0 0 40px rgba(0, 254, 252, 0.4);
 
-    box-shadow: 
+    box-shadow:
         0 0 4px var(--color-cyan),
         0 0 12px var(--color-cyan),
         inset 0 0 20px rgba(0, 254, 252, 0.75),
@@ -216,7 +216,7 @@ main {
         0 0 20px rgba(0, 254, 125, 0.75),
         0 0 40px rgba(0, 254, 125, 0.4);
 
-    box-shadow: 
+    box-shadow:
         0 0 4px var(--color-success),
         0 0 12px var(--color-success),
         inset 0 0 20px rgba(0, 254, 125, 0.75),
@@ -232,7 +232,7 @@ main {
         0 0 20px rgba(252, 0, 254, 0.75),
         0 0 40px rgba(252, 0, 254, 0.4);
 
-    box-shadow: 
+    box-shadow:
         0 0 4px var(--color-pink),
         0 0 12px var(--color-pink),
         inset 0 0 20px rgba(252, 0, 254, 0.75),
@@ -264,3 +264,22 @@ main {
         0 0 16px var(--color-cyan);
 }
 
+
+
+@media (min-width: 640px) {
+
+    .container {
+        width: min(100% - 5em, 800px);
+        margin-inline: auto;
+    }
+}
+
+
+@media (min-width: 768px) {
+
+    .answers-div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 3em;
+    }
+}
