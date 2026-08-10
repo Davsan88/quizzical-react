@@ -166,3 +166,14 @@ It was a real step from asking *“How do I make this work?”* to asking *“Wh
 
 ---
 
+## 🌐 Live Demo
+
+👉 [**Play Quizzical here**](https://quizzical-davsan.netlify.app/) 
+
+---
+
+## 📫 Contact
+
+Got feedback or questions?
+
+📧 [david.sanchez.martinez@outlook.com](mailto:david.sanchez.martinez@outlook.com)
