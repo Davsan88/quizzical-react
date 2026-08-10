@@ -153,3 +153,16 @@ It was a real step from asking *“How do I make this work?”* to asking *“Wh
 
 ---
 
+## 💡 Possible Future Improvements
+
+- Difficulty and category selection
+- Countdown timer
+- Question progress indicator
+- Score history and persistent statistics
+- Animations between quiz states
+- Sound effects
+- More theme options
+- Error handling for failed API requests
+
+---
+
